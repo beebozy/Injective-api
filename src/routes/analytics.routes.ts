@@ -14,6 +14,34 @@ import {
 const router = Router();
 
 /**
+ * @swagger
+ * /api/analytics/liquidity:
+ *   get:
+ *     summary: Get liquidity metrics
+ *     description: Returns liquidity metrics across top spot markets.
+ *     tags:
+ *       - Analytics
+ *     responses:
+ *       200:
+ *         description: Liquidity metrics retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 cached:
+ *                   type: boolean
+ *                   example: true
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ */
+
+/**
  * GET /api/analytics/liquidity
  * Get liquidity metrics across top markets
  */
@@ -41,6 +69,19 @@ router.get('/liquidity', async (req: Request, res: Response, next: NextFunction)
 });
 
 /**
+ * @swagger
+ * /api/analytics/volatility:
+ *   get:
+ *     summary: Get volatility indicators
+ *     description: Returns calculated volatility metrics for spot markets.
+ *     tags:
+ *       - Analytics
+ *     responses:
+ *       200:
+ *         description: Volatility metrics retrieved successfully
+ */
+
+/**
  * GET /api/analytics/volatility
  * Get volatility indicators
  */
@@ -66,6 +107,41 @@ router.get('/volatility', async (req: Request, res: Response, next: NextFunction
     next(error);
   }
 });
+
+/**
+ * @swagger
+ * /api/analytics/volume:
+ *   get:
+ *     summary: Get volume analytics
+ *     description: Returns 24-hour volume metrics for top markets sorted by volume.
+ *     tags:
+ *       - Analytics
+ *     responses:
+ *       200:
+ *         description: Volume analytics retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 cached:
+ *                   type: boolean
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       marketId:
+ *                         type: string
+ *                       ticker:
+ *                         type: string
+ *                       volume24h:
+ *                         type: number
+ *                       tradeCount:
+ *                         type: number
+ */
 
 /**
  * GET /api/analytics/volume
@@ -110,6 +186,19 @@ router.get('/volume', async (req: Request, res: Response, next: NextFunction) =>
     next(error);
   }
 });
+
+/**
+ * @swagger
+ * /api/analytics/trending:
+ *   get:
+ *     summary: Get trending markets
+ *     description: Returns trending markets based on trading activity and liquidity.
+ *     tags:
+ *       - Analytics
+ *     responses:
+ *       200:
+ *         description: Trending markets retrieved successfully
+ */
 
 /**
  * GET /api/analytics/trending

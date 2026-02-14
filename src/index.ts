@@ -3,6 +3,9 @@ import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import swaggerUi from 'swagger-ui-express';
+import { swaggerSpec } from './config/swagger';
+
 
 import { API_CONFIG } from './config/constants';
 import { rateLimiter } from './middleware/rateLimiter';
@@ -66,6 +69,7 @@ app.get('/', (req: Request, res: Response) => {
   });
 });
 
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // Error handling
 app.use(notFoundHandler);
 app.use(errorHandler);

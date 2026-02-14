@@ -15,6 +15,21 @@ import {
 
 const router = Router();
 
+
+/**
+ * @swagger
+ * /api/markets:
+ *   get:
+ *     summary: Get all markets
+ *     description: Returns spot and derivative markets in simplified format
+ *     tags:
+ *       - Markets
+ *     responses:
+ *       200:
+ *         description: Markets fetched successfully
+ */
+
+
 /**
  * GET /api/markets
  * Get all markets with simplified, developer-friendly format
@@ -53,6 +68,26 @@ router.get('/', async (req: Request, res: Response, next: NextFunction) => {
 });
 
 /**
+ * @swagger
+ * /api/markets/{marketId}:
+ *   get:
+ *     summary: Get specific market details
+ *     description: Fetch detailed information for a specific market.
+ *     tags:
+ *       - Markets
+ *     parameters:
+ *       - in: path
+ *         name: marketId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         example: "0xabc123"
+ *     responses:
+ *       200:
+ *         description: Market details retrieved successfully
+ */
+
+/**
  * GET /api/markets/:marketId
  * Get specific market details
  */
@@ -80,6 +115,32 @@ router.get('/:marketId', async (req: Request<{ marketId: string }>, res: Respons
     next(error);
   }
 });
+
+/**
+ * @swagger
+ * /api/markets/{marketId}/orderbook:
+ *   get:
+ *     summary: Get orderbook snapshot
+ *     description: Returns current bid/ask depth for a market.
+ *     tags:
+ *       - Markets
+ *     parameters:
+ *       - in: path
+ *         name: marketId
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - in: query
+ *         name: levels
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 20
+ *     responses:
+ *       200:
+ *         description: Orderbook snapshot retrieved
+ */
+
 
 /**
  * GET /api/markets/:marketId/orderbook
@@ -123,6 +184,31 @@ router.get('/:marketId/orderbook', async (req: Request<{marketId : string}>, res
 });
 
 /**
+ * @swagger
+ * /api/markets/{marketId}/trades:
+ *   get:
+ *     summary: Get recent trades
+ *     description: Returns recent trades for a specific market.
+ *     tags:
+ *       - Markets
+ *     parameters:
+ *       - in: path
+ *         name: marketId
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - in: query
+ *         name: limit
+ *         required: false
+ *         schema:
+ *           type: integer
+ *         example: 100
+ *     responses:
+ *       200:
+ *         description: Trades retrieved successfully
+ */
+
+/**
  * GET /api/markets/:marketId/trades
  * Get recent trades
  */
@@ -160,6 +246,25 @@ router.get('/:marketId/trades', async (req: Request<{ marketId: string }>, res: 
     next(error);
   }
 });
+
+/**
+ * @swagger
+ * /api/markets/{marketId}/summary:
+ *   get:
+ *     summary: Get 24h market summary
+ *     description: Returns 24-hour metrics including volume, high, low, and last price.
+ *     tags:
+ *       - Markets
+ *     parameters:
+ *       - in: path
+ *         name: marketId
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Market summary retrieved successfully
+ */
 
 /**
  * GET /api/markets/:marketId/summary

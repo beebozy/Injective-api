@@ -11,7 +11,7 @@ export const CACHE_TTL = {
   ANALYTICS: 300, // 5 minutes
 } as const;
 
-export const NETWORK = 'mainnet' as const;
+export const NETWORK = 'testnet' as const;
 
 export const MARKET_TYPES = {
   SPOT: 'spot',
