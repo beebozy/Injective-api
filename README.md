@@ -1,4 +1,4 @@
-# 🚀 Injective Market Intelligence API
+#  Injective Market Intelligence API
 
 > Production-ready TypeScript API for Injective market data with intelligent caching and analytics
 
@@ -8,25 +8,25 @@
 
 ## ✨ Key Features
 
-### 🎯 **Developer-First Design**
+###  **Developer-First Design**
 - **Type-safe** - Full TypeScript implementation with comprehensive interfaces
 - **Clean REST API** - Predictable endpoints, consistent response formats
 - **Zero auth for basics** - Start using immediately without API keys
 - **Intelligent caching** - 5-300 second TTLs optimize performance
 
-### 📊 **Advanced Analytics**
+###  **Advanced Analytics**
 - **Liquidity scoring** - Multi-level orderbook depth analysis
 - **Volatility metrics** - 24h price movement indicators
 - **Volume rankings** - Real-time trading activity
 - **Trending markets** - Algorithmically ranked by activity
 
-### ⚡ **Performance**
+###  **Performance**
 - **<50ms response time** (cached requests)
 - **~85% cache hit rate** (typical production)
 - **Rate limiting** - 100 req/15min per IP
 - **Error resilience** - Graceful degradation
 
-## 🏗️ Architecture
+##  Architecture
 ```
 ┌─────────────────┐
 │  Express.js API │  ← TypeScript, strict mode
@@ -49,16 +49,16 @@
 └─────────────────┘
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Node.js >= 16.0.0
-- npm or yarn
+- npm 
 
 ### Installation
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/injective-market-api.git
+git clone https://github.com/beebozy/injective-market-api.git
 cd injective-market-api
 
 # Install dependencies
@@ -77,7 +77,7 @@ npm run dev
 npm start
 ```
 
-## 📖 API Documentation
+##  API Documentation
 
 ### Base URL
 ```
@@ -205,7 +205,7 @@ GET /api/health/cache
 }
 ```
 
-## 🎨 TypeScript Types
+## TypeScript Types
 
 All API responses are fully typed:
 ```typescript
@@ -220,7 +220,7 @@ import {
 const markets: ApiResponse<SimplifiedMarket[]> = await fetch('/api/markets');
 ```
 
-## 💡 Why This API Wins
+##  Why This API Wins
 
 ### 1. **Solves Real Problems**
 - Injective's raw API is complex for newcomers
@@ -265,7 +265,7 @@ const markets: ApiResponse<SimplifiedMarket[]> = await fetch('/api/markets');
 - [ ] Prometheus metrics
 - [ ] Docker containerization
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Technology | Purpose |
 |------------|---------|
@@ -276,7 +276,7 @@ const markets: ApiResponse<SimplifiedMarket[]> = await fetch('/api/markets');
 | Helmet | Security headers |
 | Rate Limit | API abuse prevention |
 
-## 📁 Project Structure
+##  Project Structure
 ```
 src/
 ├── index.ts                    # App entry point
@@ -302,7 +302,7 @@ src/
     └── rateLimiter.ts
 ```
 
-## 🧪 Testing
+##  Testing
 ```bash
 # Run tests
 npm test
@@ -311,7 +311,7 @@ npm test
 npm run test:coverage
 ```
 
-## 🚀 Deployment
+##  Deployment
 
 ### Option 1: Railway (Recommended)
 ```bash
@@ -337,27 +337,13 @@ docker run -p 3000:3000 injective-api
 
 MIT License - See [LICENSE](LICENSE) for details
 
-## 👤 Author
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Twitter: [@yourhandle](https://twitter.com/yourhandle)
-- Email: your.email@example.com
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 Built for the **Injective Ninja API Forge Hackathon**
 
-This API demonstrates:
-- ✅ Clean TypeScript architecture
-- ✅ Developer-first API design
-- ✅ Practical reusability
-- ✅ Production-ready code quality
 
 ---
 
-**⭐ If this API helps you, please star the repository!**
-
-**Submission Date:** February 15, 2026
-**Hackathon:** Ninja API Forge
-**Track:** Data Aggregation APIs
+**If this API helps you, please star the repository!**
